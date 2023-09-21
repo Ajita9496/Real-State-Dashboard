@@ -1,7 +1,7 @@
 import React from "react";
 
 import {
-    GitHubBanner,
+
     Refine,
     LegacyAuthProvider as AuthProvider,
 } from "@refinedev/core";
@@ -44,9 +44,13 @@ axiosInstance.interceptors.request.use((request: AxiosRequestConfig) => {
     const token = localStorage.getItem("token");
     if (request.headers) {
         request.headers["Authorization"] = `Bearer ${token}`;
+        request.headers["Cross-Origin-Opener-Policy"] = "same-origin";
+        request.headers["Cross-Origin-Embedder-Policy"] = "require-corp";
     } else {
         request.headers = {
             Authorization: `Bearer ${token}`,
+            "Cross-Origin-Opener-Policy": "same-origin", // Set the additional headers here
+            "Cross-Origin-Embedder-Policy": "require-corp",
         };
     }
 
@@ -127,7 +131,7 @@ function App() {
 
     return (
         <ColorModeContextProvider>
-            <GitHubBanner />
+            
             <CssBaseline />
             <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
             <RefineSnackbarProvider>

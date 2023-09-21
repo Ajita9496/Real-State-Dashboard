@@ -18,8 +18,20 @@ export const Header: React.FC = () => {
             position="sticky"
             elevation={0}
             sx={{ background: "#fcfcf" }}
-        >
+           
+        > 
+        
             <Toolbar>
+            <Stack direction="row"
+        width="100%"
+        marginTop="10px"
+        marginLeft="20px"
+        justifyContent="flex-end"
+        fontSize="20px"
+        fontWeight="700"
+        color="#475BE8"
+        alignItems="center"><text fontSize="30px">Discover a place
+        you'll love to live</text></Stack>
                 <Stack
                     direction="row"
                     width="100%"
